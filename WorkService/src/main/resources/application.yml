@@ -1,0 +1,38 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: WorkService
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.31.75:3306/demo?serverTimezone=GMT%2B8&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+
+  rabbitmq:
+    # IP
+    host: 192.168.31.75
+    # 端口
+    port: 5672
+    # 用户名
+    username: root
+    # 密码
+    password: root
+    # 虚拟主机
+    virtual-host: /FeignProject
+
+  data:
+    redis:
+      database: 1
+      host: 192.168.31.75
+      port: 6379
+      password: zyq0831
+      timeout: 5s
+      connect-timeout: 5s
+
+mybatis:
+  mapper-locations: classpath:mybatis/**/*Mapper.xml
+  type-aliases-package: com.ez.springboot.workservice.bean
+  configuration:
+    map-underscore-to-camel-case: true
